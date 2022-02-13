@@ -1,0 +1,42 @@
+DOCKER 
+本身是一個容器運行載體OR管理引擎，將應用程式和配置依賴打包好形成一個可交付的運行環境，
+這個打包好的運行環境就是image鏡像文件，只有透過這個鏡像文件才能生成Docker容器實例(類似JAVA中 NEW出來的一個對象)
+概念:
+開發在LINUX上的容器虛擬化技術(貨櫃概念)，一般使用在LINUX上面
+若別的系統要使用DOCKER 則需安裝 虛擬機 ->安裝 LINUX ->安裝DOCKER
+
+基本組成:                                  
+鏡像(image)      => 類模板            => 只讀取，可以一個鏡像 多個容器  (靜態定義)  
+容器(contianer)  => NEW出來的實例對象 => 鏡像創建的運行實例	      (鏡像運行的實體)		
+倉庫(repository) => 集中放鏡像的地方
+
+最小可運行linux的核心環境 (簡單版LINUX)
+
+鏡像和容器以JAVA比喻來說:
+(Book=>image)   JAVA (Book()=>contianer)
+
+Book b1    = new Book();
+Book b2    = new Book();
+
+倉庫:
+類似於Maven倉庫，存放各種jar包的地方
+github倉庫，存放各種git項目的地方
+docker hub ，docker官方提供存放各種鏡像模板的地方
+
+倉庫分為公開倉庫 和私有倉庫
+
+結構:
+client-server結構
+安裝後有個服務啟動-管理後臺工具進行操作
+
+安裝方式:
+參考docker官網
+
+語法:
+LINUX終端
+systemctl status docker    //docker 啟動狀態
+systemctl start docker     //啟動docker
+systemctl stop docker      //停止docker
+systemctl restart docker   //重新啟動docker
+
+

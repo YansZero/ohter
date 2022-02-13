@@ -1,0 +1,57 @@
+GIT
+初始化 gitinit
+查狀態 git status
+提交 commit -m "註解"
+查詢遠端空間上的資訊 git remote -v 
+連結遠端空間 git remote add origin 網址(GITHUB專案網址)
+EX: git remote add origin https://github.com/YansZero/excercise.git
+
+下載檔案 
+GIT clone 來源 放的位置
+EX: git clone https://github.com/YansZero/test.git test2
+
+將GITHUB雲端專案下載合併到本機
+GIT pull 遠端空間的名稱 分支名稱
+EX: pull origin master
+
+
+
+
+
+
+
+狀況排除:
+
+推上去的時候遇到
+指令: F:\code\python>git push -u origin master
+狀態:
+info: please complete authentication in your browser...
+To https://github.com/YansZero/excercise.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/YansZero/excercise.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+原因:
+出現這個問題是因為github中的README.md檔案不在原生代碼目錄中，可以通過如下命令進行程式碼合併
+
+解法:
+git pull --rebase origin master
+然後再
+git push origin master
+
+
+clone 一個repository 後
+新增檔案PUSH上去 無法PUSH
+指令: F:\code\test2>git push origin master
+狀態:
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/YansZero/test.git'
+
+原因:
+因為該repository 已經將分支改成main 使用master會失敗的
+解法:
+F:\code\test2>git push origin main
